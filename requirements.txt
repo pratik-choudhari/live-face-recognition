@@ -1,0 +1,5 @@
+cmake
+dlib
+numpy
+pygame
+face_recognition
