@@ -1,5 +1,6 @@
 import os
 from os.path import isfile, join
+import sys
 
 import numpy as np
 import pygame
@@ -67,14 +68,12 @@ class Capture(object):
         pygame.display.flip()
 
     def main(self):
-        going = True
-        while going:
+        while True:
             events = pygame.event.get()
             for e in events:
-                if e.type == QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
+                if e.type == pygame.QUIT or (e.type == KEYDOWN and e.key == K_ESCAPE):
                     self.cam.stop()
-                    going = False
-
+                    pygame.quit()
             self.get_and_flip()
 
 
